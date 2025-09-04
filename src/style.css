@@ -47,7 +47,7 @@ body {
 
 .header .navbar a::before {
   content: "";
-  background: var(--primary);
+  border: 0.1rem solid var(--primary);
   inset: 0;
   position: absolute;
   z-index: 0;
@@ -60,7 +60,7 @@ body {
   z-index: 1;
 }
 .header .navbar a:hover span {
-  color: var(--bg);
+  color: var(--primary);
 }
 .header .navbar a:hover::before {
   transform: scaleX(1);
@@ -90,17 +90,13 @@ body {
   color: var(--primary);
 }
 .home .intro .animation {
-  transition: 1s;
+  width: fit-content;
+  animation: typing 0.7s infinite;
 }
-.home .intro .animation:hover {
-  color: blue;
-}
-@keyframes tes {
-  0% {
-    transform: scaleX(0);
-  }
-  100% {
-    transform: scaleX(1);
+
+@keyframes typing {
+  to {
+    border-right: 0.1rem solid var(--font);
   }
 }
 /* home end */
@@ -119,6 +115,7 @@ body {
   margin: 2rem auto;
   width: 30vw;
   transition: 0.6s linear;
+  cursor: pointer;
 }
 
 .skils div:hover {
@@ -152,16 +149,18 @@ body {
 .contact .button {
   font-size: 1.5rem;
   padding: 0.5rem;
-  color: #010101;
-  background-color: var(--primary);
+  color: var(--font);
+  background-color: transparent;
   font-weight: 900;
   border-radius: 0.5rem;
   transition: 0.5s linear;
   opacity: 0.9;
+  border: 0.2rem solid var(--primary);
 }
 .contact .button:hover {
-  box-shadow: 2px 2px 5px var(--primary);
-  opacity: 1;
+  box-shadow: 2px 2px 5px var(--font);
+  color: var(--primary);
+  border: 0.2rem solid var(--font);
 }
 /* contact end */
 
@@ -173,4 +172,33 @@ footer {
   align-items: center;
   border-top: 1px solid var(--line);
   height: 4rem;
+}
+
+/* responsive */
+
+/* tablet */
+@media (max-width: 768px) {
+  .header H1 {
+    color: crimson;
+  }
+  html {
+    font-size: 90%;
+  }
+  .home img {
+    width: 30%;
+  }
+}
+
+/* mobile */
+@media (max-width: 450px) {
+  .header H1 {
+    color: lightpink;
+  }
+  .skils {
+    display: block;
+    margin: 0 auto;
+  }
+  .skils div {
+    width: 95vw;
+  }
 }
